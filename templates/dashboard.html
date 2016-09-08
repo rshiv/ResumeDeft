@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container board">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			{% with m = get_flashed_messages(with_categories=true) %}
+				{% if m %}
+					{% for cat,msg in m %}
+						<div class="flash-{{cat}}">{{msg}}</div>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			<form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+			    <div class="form-group">
+					<label for="exampleInputFile">Upload Resume</label>
+					<input type="file" id="exampleInputFile" name="file">
+					<p class="help-block">Only PDF, PPT and DOC(WORD) Files accepted.</p>
+					<input type="submit" class="btn btn-danger" value"Upload">
+				</div>
+		    </form>
+		</div>
+    </div>
+    <hr>
+    <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+	    	<h4 class="text-center">Uploaded Resumes, CVs and Portfolios</h4>
+			{% if not filenames %}
+			<p>You haven't uploaded any files yet</p>
+			{% else %}
+		    <ul class="list-group">
+		    	{% for row in filenames %}
+				<li class="list-group-item"><a href="uploads/{{ row['filename'] }}" target="_blank">{{ row["filename"] }}</a></li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		</div>
+    </div>
+</div>
+{% endblock %}
