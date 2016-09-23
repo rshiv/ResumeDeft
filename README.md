@@ -4,11 +4,11 @@
 
 ## To Use
 
-You must have Python(https://www.python.org/downloads/) installed on your computer. Also, You must create the appropriate Database and Table in MySQL (Import the Database File provided in static folder in MySQL). Open the terminal and run:
+You must have [Python](https://www.python.org/downloads/) installed on your computer. Also, You must create the appropriate Database and Table in MySQL (Import the Database File provided in static folder in MySQL). Open the terminal and run:
 
 ```bash
 # Clone this repository
-git clone https://github.com/jajodiaraghav/Tweety.git
+git clone git@github.com:jajodiaraghav/ResumeDeft.git
 # Install Flask Library if you haven't already
 pip install flask
 # Go into the repository
